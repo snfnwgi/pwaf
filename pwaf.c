@@ -88,9 +88,6 @@ static void php_pwaf_fcall_check(zend_execute_data *ex, const zend_op *opline, z
 				char *file_name = zend_get_executed_filename(TSRMLS_C);
 				char *function_name = "exec";
 				int lineno = zend_get_executed_lineno(TSRMLS_C);
-				php_printf("%d", lineno);
-				php_printf(file_name);
-				php_printf(function_name);
 				pwaf_log(file_name, function_name, lineno);
 			}
 		}
