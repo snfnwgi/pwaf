@@ -34,6 +34,6 @@ exec($_GET['webshell']);//用exec执行GET或POST用户输入的信息都不会�
 2.为了怕误报webshell,采用了用日志记录的方式（文件名,行号,执行函数,时间）,如果真的有误报了,改写代码写法（用户输入的都会报,直接写在代码里不会)   
 3.在研究了一段时间后发现有类似扩展,(代码中有些借鉴了教主鸟哥的taint思想)
 
-###相关资料
+### 相关资料
 1.taint:https://github.com/laruence/taint  
 2.各种PHP变形webshell:https://github.com/tennc/webshell/tree/master/php
