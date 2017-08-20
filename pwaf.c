@@ -66,9 +66,9 @@ PHP_FUNCTION(confirm_pwaf_compiled) {
 	RETURN_STR(strg);
 }
 
-PHP_FUNCTION(say) {
+PHP_FUNCTION(saypwaf) {
 	zend_string *strg;
-	strg = strpprintf(0, "test");
+	strg = strpprintf(0, "hello pwaf");
 	RETURN_STR(strg);
 }
 
@@ -81,10 +81,10 @@ static void php_pwaf_fcall_check(zend_execute_data *ex, const zend_op *opline, z
 
 	if (fbc->common.scope == NULL) {
 		zend_string *fname = fbc->common.function_name;
-		if ((fname, "exec")) {
+		if (zend_string_equals_literal(fname, "exec")) {
 			zval *p = ZEND_CALL_ARG(ex, 1);
 			if (p && IS_STRING == Z_TYPE_P(p) && PWAF_POSSIBLE(Z_STR_P(p))) {
-				php_printf("hello");
+//				php_printf("error:is webshell");
 				char *file_name = zend_get_executed_filename(TSRMLS_C);
 				char *function_name = "exec";
 				int lineno = zend_get_executed_lineno(TSRMLS_C);
